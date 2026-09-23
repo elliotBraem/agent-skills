@@ -185,7 +185,7 @@ const committed = await fetch('https://1click.chaindefuser.com/v0/quote', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer YOUR_API_KEY' // Authenticated fee schedule (see below)
+    'Authorization': 'Bearer YOUR_JWT_TOKEN' // Authenticated fee schedule (see below)
   },
   body: JSON.stringify({
     dry: false, // Commit!
