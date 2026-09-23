@@ -26,7 +26,7 @@ Source: https://docs.near-intents.org/integration/distribution-channels/1click-a
 ```typescript
 const quote = await fetch('https://1click.chaindefuser.com/v0/quote', {
   method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
+  headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer YOUR_JWT_TOKEN' }, // authenticated quotes avoid the +0.25% unauthenticated fee
   body: JSON.stringify({
     dry: false,
     swapType: 'EXACT_INPUT',
@@ -50,7 +50,7 @@ Same endpoint; swap origin/destination. `originAsset` = Hyperliquid USDC, `depos
 
 ## Critical Rules
 
-1. **Fee:** flat **0.2 USDC** deducted from each deposit (5 arrives → 4.8 credited). Send `quote.amountIn` — do **not** add 0.2 yourself.
+1. **Fee:** flat **0.2 USDC** deducted from each FROM-Hyperliquid deposit (5 arrives → 4.8 credited). Send `quote.amountIn` — do **not** add 0.2 yourself.
 2. **Minimum deposit 0.5 USDC** — smaller amounts are not processed.
 3. **Transfer methods:**
    - `sendAsset` ✅ supported (spot or perp; standard Hyperliquid Send)

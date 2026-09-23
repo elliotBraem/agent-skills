@@ -32,7 +32,7 @@ Required attributes:
 | `depositType` | `ORIGIN_CHAIN` returns a chain deposit address; `INTENTS` / `CONFIDENTIAL_INTENTS` use the generate-intent + submit-intent flow |
 | `refundTo` / `refundType` | Refund address + type |
 | `recipient` / `recipientType` | Who receives filled output |
-| `confidentiality` | **Required for orders.** `public` / `basic` / `advanced` |
+| `confidentiality` | **Required for orders.** `basic` / `advanced` |
 
 Optional: `deadline` (ISO), `depositMode` (`SIMPLE`/`MEMO`), `timeInForce` (default `GTC`), `appFees` (deducted from input, included in the submitted limit price).
 
@@ -40,7 +40,7 @@ Optional: `deadline` (ISO), `depositMode` (`SIMPLE`/`MEMO`), `timeInForce` (defa
 
 Order attributes include:
 
-- `depositAddress`, `depositMemo` — fund the order like a swap deposit
+- `depositAddress`, `depositMemo` — fund the order by sending to `depositAddress` (include `depositMemo` when present): **SELL** → send `swapView.amountIn`, **BUY** → send `swapView.maxAmountIn`
 - `fillStatus`: `AWAITING_DEPOSIT`, `PENDING_CANCEL`, `UNTRIGGERED`, `OPEN`, `PARTIALLY_FILLED`, `FILLED`, `CANCELED`, `EXPIRED`
 - `payoutStatus`: `NOT_STARTED`, `IN_PROGRESS`, `COMPLETED`, `FAILED` — progress of withdrawal/refund legs; **use `isPayoutStatusFinal` to check terminality** (fill status ending does not mean payout arrived)
 - `partialFills[]` — successful fills only (in-flight/failed fills are not reported)

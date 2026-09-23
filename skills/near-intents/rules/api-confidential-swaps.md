@@ -41,6 +41,4 @@ Run a normal `ORIGIN_CHAIN` → `DESTINATION_CHAIN` swap and add `confidentialit
 
 Funds already live in a Confidential Intents balance: set `depositType`, `recipientType`, and/or `refundType` to `CONFIDENTIAL_INTENTS` and authorize the swap via [Signed Intent Execution](https://docs.near-intents.org/integration/distribution-channels/1click-api/quickstart/signed-intent-execution.md). Used by integrations that keep user balances in Intents (e.g. near.com).
 
-## User-Owned Private Balances
-
-To reveal/private-manage a user's confidential balances and history, authenticate the end user (see `api-user-auth.md`) and use `GET /v0/account/balances` with the User-Session token.
+Viewing or privately managing a user's confidential balances and history is a separate flow — see `api-user-auth.md`.

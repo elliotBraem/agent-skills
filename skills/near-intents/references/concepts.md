@@ -45,7 +45,7 @@ Centralized exchanges (CEXes) often use intermediate or per-user deposit address
 
 ## Authentication
 
-Register on the [Partners Portal](https://partners.near-intents.org/) to obtain an API key. Without it, 1Click adds an extra 0.25% (25 bps) fee on every non-`ANY_INPUT` quote; with it, the fee is 0.20% (1 bp for stablecoin pairs / same-asset multichain routes). See the [fee schedule](https://docs.near-intents.org/resources/fees.md).
+Register on the [Partners Portal](https://partners.near-intents.org/) to obtain an API key. Without it, 1Click adds an extra 0.25% (25 bps) fee on every non-`ANY_INPUT` quote. With an API key, the fee is 0.20% normally, or 0.01% (1 bp) for stablecoin pairs and same-asset multichain routes. See the [fee schedule](https://docs.near-intents.org/resources/fees.md).
 
 ```typescript
 headers: { Authorization: `Bearer ${apiKey}` }
